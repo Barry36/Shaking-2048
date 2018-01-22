@@ -1,0 +1,70 @@
+package lab4_204_03.uwaterloo.ca.lab4_204_03;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Color;
+import android.hardware.Sensor;
+import android.hardware.SensorEventListener;
+import android.hardware.SensorManager;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.Gravity;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import java.util.LinkedList;
+import java.util.Timer;
+import java.util.TimerTask;
+
+import static android.graphics.Color.BLACK;
+public class MainActivity extends AppCompatActivity {
+    private static final int GAMEBOARD_DIMENSION = 1080;
+    LinkedList<Triplet> queue = new LinkedList<Triplet>();
+
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        //Declaring the layout
+        RelativeLayout parent = (RelativeLayout) findViewById(R.id.parent);
+        RelativeLayout tvLayout = (RelativeLayout) findViewById(R.id.textViews);
+        tvLayout.bringToFront();
+        parent.getLayoutParams().width = GAMEBOARD_DIMENSION;
+        parent.getLayoutParams().height = GAMEBOARD_DIMENSION;
+
+        parent.setBackgroundResource(R.drawable.gameboard);
+
+        LinearLayout textLayout = (LinearLayout) findViewById(R.id.textLay);
+
+        //Textview for direction indicator
+        TextView indicator = new TextView(getApplicationContext());
+        indicator.setText("Direction Indication");
+        indicator.setTextColor(BLACK);
+        indicator.setTextSize(30);
+        indicator.setGravity(Gravity.CENTER);
+
+        //Declaring the sensor handler
+        SensorManager manager = (SensorManager) getSystemService(SENSOR_SERVICE);
+        Sensor accelSensor = manager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION);
+
+        //Creating the instant of the gameloop task
+        GameLoopTask myGameLoopTask = new GameLoopTask(this, parent, tvLayout, getApplicationContext());
+
+        SensorEventListener accelListener = new AccelerometerListener(queue, indicator, myGameLoopTask);
+        manager.registerListener(accelListener, accelSensor, SensorManager.SENSOR_DELAY_GAME);
+
+        //Creating the timer for framerate
+        Timer myGameLoop = new Timer();
+
+        myGameLoop.schedule(myGameLoopTask, 32, 32);
+
+    }
+}

@@ -1,0 +1,87 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:2:1-21:12
+	package
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:3:5-51
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+application
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:5:5-19:19
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\linyu\.android\build-cache\338e342201ecdfe4422973a58833f403e09f85e8\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\linyu\.android\build-cache\a1da540da6c8c31ca7d45f4237f92e5236686b7f\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\linyu\.android\build-cache\5b2c794300a6402a56efe755956b05fd5692e485\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\linyu\.android\build-cache\7c9acc93376a6a3d0680fca0abc16658521e45c0\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\linyu\.android\build-cache\fa1e56fb2726146a98cbf4503173e92a3b035416\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\8611390ea8f30fee2c4d8ea2952d11f42da15430\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\4903ef223334469ddf04bd6efd04476a87fdb840\output\AndroidManifest.xml:26:5-20
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\linyu\.android\build-cache\443544a3491b92dddc35912f5acf2fb8edd949a4\output\AndroidManifest.xml:29:5-20
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\linyu\.android\build-cache\b4932334aa259f37c6c1ada6d67a9b70891361b1\output\AndroidManifest.xml:9:5-20
+	android:label
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:8:9-41
+	android:supportsRtl
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:10:9-35
+	android:roundIcon
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:9:9-54
+	android:allowBackup
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:6:9-35
+	android:icon
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:7:9-43
+	android:theme
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:11:9-40
+activity#lab4_204_03.uwaterloo.ca.lab4_204_03.MainActivity
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:12:9-18:20
+	android:name
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:12:19-47
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:13:13-17:29
+action#android.intent.action.MAIN
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:14:17-69
+	android:name
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:14:25-66
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:16:17-77
+	android:name
+		ADDED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml:16:27-74
+uses-sdk
+INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\linyu\.android\build-cache\338e342201ecdfe4422973a58833f403e09f85e8\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\linyu\.android\build-cache\a1da540da6c8c31ca7d45f4237f92e5236686b7f\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\linyu\.android\build-cache\5b2c794300a6402a56efe755956b05fd5692e485\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\linyu\.android\build-cache\7c9acc93376a6a3d0680fca0abc16658521e45c0\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\linyu\.android\build-cache\fa1e56fb2726146a98cbf4503173e92a3b035416\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\8611390ea8f30fee2c4d8ea2952d11f42da15430\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\4903ef223334469ddf04bd6efd04476a87fdb840\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\linyu\.android\build-cache\443544a3491b92dddc35912f5acf2fb8edd949a4\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\linyu\.android\build-cache\b4932334aa259f37c6c1ada6d67a9b70891361b1\output\AndroidManifest.xml:5:5-7:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:23:9-75
+	android:targetSdkVersion
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\linyu\AndroidStudioProjects\Lab4_204_03\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-v4:25.3.1] C:\Users\linyu\.android\build-cache\338e342201ecdfe4422973a58833f403e09f85e8\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-fragment:25.3.1] C:\Users\linyu\.android\build-cache\a1da540da6c8c31ca7d45f4237f92e5236686b7f\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-media-compat:25.3.1] C:\Users\linyu\.android\build-cache\5b2c794300a6402a56efe755956b05fd5692e485\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-ui:25.3.1] C:\Users\linyu\.android\build-cache\7c9acc93376a6a3d0680fca0abc16658521e45c0\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:support-core-utils:25.3.1] C:\Users\linyu\.android\build-cache\fa1e56fb2726146a98cbf4503173e92a3b035416\output\AndroidManifest.xml:25:5-27:34
+MERGED from [com.android.support:animated-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\8611390ea8f30fee2c4d8ea2952d11f42da15430\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-vector-drawable:25.3.1] C:\Users\linyu\.android\build-cache\4903ef223334469ddf04bd6efd04476a87fdb840\output\AndroidManifest.xml:22:5-24:34
+MERGED from [com.android.support:support-compat:25.3.1] C:\Users\linyu\.android\build-cache\443544a3491b92dddc35912f5acf2fb8edd949a4\output\AndroidManifest.xml:25:5-27:34
+	android:value
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:27:9-31
+	android:name
+		ADDED from [com.android.support:appcompat-v7:25.3.1] C:\Users\linyu\.android\build-cache\6f083408e792790208a07d546d963f91033803af\output\AndroidManifest.xml:26:9-47

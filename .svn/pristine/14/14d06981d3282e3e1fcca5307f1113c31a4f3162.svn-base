@@ -1,0 +1,77 @@
+package lab4_204_03.uwaterloo.ca.lab4_204_03;
+
+import android.util.Log;
+
+// FSM for 1 axis
+public class GestureFsm {
+    // A is +ve gesture, B is -ve gesture.
+    private enum State {PeakA, MidA, Done, Start, PeakB, MidB};
+    private State state = State.Start;
+    //Threshold A for primary signal, B for secondary signal
+    private final float threshA = 2.0f, threshB = 0.5f;
+
+    // Runs on every sensor acceleration reading.
+    // Returns 1 for +ve signal, -1 for -ve signal, and 0 otherwise
+    public int runFsm(float accel){
+        State temp = state;
+        switch(state){
+            case Start:
+                //Checks for initial rise/fall
+                if (accel > threshA){
+                    state = state.PeakA;
+                }
+                else if (accel < -threshA){
+                    state = state.PeakB;
+                }
+                break;
+            case PeakA:
+                //Waits for fall to 0
+                if (accel < 0){
+                    state = state.MidA;
+                }
+                break;
+            case MidA:
+                //If secondary drop is detected, return +ve gesture
+                if (accel < -threshB){
+                    state = State.Done;
+                    return 1;
+                }
+                //Reject signal if it rises back up
+                else if (accel > 0){
+
+                    state = State.Done;
+                }
+                break;
+            case PeakB:
+                //Waits for rise back to 0
+                if (accel > 0){
+                    state = state.MidB;
+                }
+                break;
+            case MidB:
+                //If secondary rise is detected, return -ve gesture
+                if (accel > threshB){
+                    state = State.Done;
+                    return -1;
+                }
+                //Reject signal if it drops back down
+                else if (accel < 0){
+
+                    state = State.Done;
+                }
+                break;
+            case Done:
+                //Continue recognition once acceleration stabilizes to 0
+                if (accel < 0.05 && accel > -0.05){
+                    state = State.Start;
+                }
+                break;
+            default:
+                state = State.Done;
+                break;
+        }
+
+        return 0;
+    }
+}
+

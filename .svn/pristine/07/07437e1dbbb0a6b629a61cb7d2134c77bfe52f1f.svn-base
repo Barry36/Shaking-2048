@@ -1,0 +1,170 @@
+package lab4_204_03.uwaterloo.ca.lab4_204_03;
+
+/**
+ * Created by Josip on 2017-07-06.
+ */
+
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.Typeface;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+import java.util.Random;
+
+import static android.graphics.Color.BLACK;
+import static lab4_204_03.uwaterloo.ca.lab4_204_03.GameLoopTask.gameDirections.DOWN;
+import static lab4_204_03.uwaterloo.ca.lab4_204_03.GameLoopTask.gameDirections.LEFT;
+import static lab4_204_03.uwaterloo.ca.lab4_204_03.GameLoopTask.gameDirections.RIGHT;
+import static lab4_204_03.uwaterloo.ca.lab4_204_03.GameLoopTask.gameDirections.UP;
+
+//Creating class GameBlock that extends an imageview class
+public class GameBlock extends GameBlockTemplate{
+    private float IMAGE_SCALE = 0.6f;
+    public float Xpos = -80;
+    public float Ypos =-80;
+    public float destination;
+    public int velocity = 0;
+    public float acceleration = 5;
+    public GameLoopTask.gameDirections newDir;
+    private int offSetx = 215;
+    private int offSety = 63;
+    private TextView tv;
+
+    public int number;
+
+
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public GameBlock(Context context, float coordX, float coordY, RelativeLayout textviewLayout) {//Constructor for the GameBlock
+        super(context);
+        Xpos = coordX;
+        Ypos = coordY;
+        this.setImageResource(R.drawable.gameblock);
+        this.setScaleX(IMAGE_SCALE);
+        this.setScaleY(IMAGE_SCALE);
+        this.setX(coordX);
+        this.setY(coordY);
+        createtv(textviewLayout, context, coordX, coordY);
+    }
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void createtv(RelativeLayout textviewLayout, Context context,float x, float y){
+        int blockNum = randGenerator();
+
+        tv = new TextView(context);
+
+        tv.setX(x+offSetx);
+        tv.setY(y+offSety);
+        tv.setText(Integer.toString(blockNum));
+        tv.setTextSize(70);
+        tv.setTypeface(Typeface.DEFAULT_BOLD);
+        tv.setTextColor(BLACK);
+        textviewLayout.addView(tv);
+        tv.bringToFront();
+    }
+
+    //TODO: change so that block stops at specific destination
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void move() {//Move function for changing the blocks coordinates according to the direction
+
+        if (newDir == UP) {//Checking for up gesture
+            slideUp(destination);
+
+        }
+        //Repeat the first block
+        else if (newDir == DOWN) {
+            slideDown(destination);
+
+        }
+        //Repeat the first block
+        else if (newDir == RIGHT) {
+            slideRight(destination);
+
+        }
+        //Repeat the first movement block
+        else if (newDir == LEFT) {
+            slideLeft(destination);
+
+        }
+
+    }
+
+
+    public void setDestination (float dest, GameLoopTask.gameDirections direction) {
+        newDir = direction;
+        destination = dest;
+        velocity = 1;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void slideLeft(float endDestination){
+        if ((Xpos - velocity) > endDestination) {
+            Xpos -= (velocity);
+            this.setX(Xpos);
+            tv.setX(Xpos+offSetx);
+            velocity += acceleration;
+        }
+        else if((Xpos - velocity) <= endDestination){
+            Xpos = endDestination;
+            this.setX(Xpos);
+            tv.setX(Xpos+offSetx);
+            velocity = 0;
+        }
+    }
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void slideRight(float endDestination){
+        if ((Xpos + velocity) < endDestination) {
+            Xpos += (velocity);
+            this.setX(Xpos);
+            tv.setX(Xpos+offSetx);
+            velocity += acceleration;
+            this.setX(Xpos);
+        }
+        else if((Xpos + velocity) >= endDestination){
+            Xpos = endDestination;
+            this.setX(Xpos);
+            tv.setX(Xpos+offSetx);
+            velocity = 0;
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void slideUp(float endDestination){
+        if ((Ypos - velocity) >  endDestination) {//Repeat the movement if the block is before the boundary
+            Ypos -= (velocity);//Adding the velocity to the y position
+            this.setY(Ypos);//Setting the y position of the block
+            tv.setY(Ypos+offSety);
+            velocity += acceleration;//Adding the acceleration to the velocity
+        }
+        else if((Ypos - velocity) <= endDestination){//Checking for if the block will leave the boundary
+            Ypos = endDestination;//Setting the y position to the boundary
+            this.setY(Ypos);
+            tv.setY(Ypos+offSety);
+            velocity = 0;//setting velocity to zero since the movement is complete
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.HONEYCOMB)
+    public void slideDown(float endDestination){
+        if ((Ypos + velocity) < endDestination) {
+            Ypos += (velocity);
+            this.setY(Ypos);
+            tv.setY(Ypos+offSety);
+            velocity += acceleration;
+        }
+        else if((Ypos + velocity) >= endDestination){
+            Ypos = endDestination;
+            this.setY(Ypos);
+            tv.setY(Ypos+offSety);
+            velocity = 0;
+        }
+    }
+    private int randGenerator(){
+        int select[] = {2, 4};
+
+        Random rand = new Random();
+        int  random = rand.nextInt(2) + 1;
+        return select[random-1];
+    }
+}
