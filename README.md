@@ -1,6 +1,6 @@
 # Shaking-2048
 This is an Android Game like 2048, but shake your phone to win the game!
-This is a project I did with other two students Yuhan and Josip. In the app, you can move the blocks by sawying your phone to
+This is a project I did with other two co-developers, Yuhan and Josip. In the app, you can move the blocks by sawying your phone to
 the up, down, left and right directions. We used accelerometer to collect the raw data and developed a filter algorithm to 
 minimize the noise (and other factors) so that the app can recognize user's gestures properly. Although we tried our best to 
 attenuate the ''noise'', the app can only reach 97% accuracy to recognize users gestures, since there are 3 axes in real-life
